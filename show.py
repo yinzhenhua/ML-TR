@@ -7,12 +7,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-def show_cost(costs):
+def show_cost(train_costs, validation_costs):
     """
     输出梯度下降过程中损失函数值的变化情况
     """
     sns.set_style("whitegrid")  
-    plt.plot(costs)  
+    plt.plot(train_costs)  
+    plt.plot(validation_costs)
     plt.show()  
 
 

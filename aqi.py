@@ -29,6 +29,11 @@ def gradient_descending(theta, x, y,v_x, v_y, learning_rate):
         train_costs.append(get_cost(theta, x, y))
         validation_costs.append(get_cost(theta, v_x, v_y))
     show_cost(train_costs, validation_costs)
+    # TODO: 将theta的值保存起来
+    with open('model.txt', 'w') as f:
+        for i in theta:
+            for j in i:
+                f.write(str(j)+"\n")
     return theta
 
 
@@ -48,20 +53,12 @@ def get_cost(theta, x, y):
     """
     return np.mean((np.dot(x, theta) - y) ** 2)
 
-def get_aqi_value(input_data):
-    """
-    根据用户提供的输入数据，完成aqi值的预测
-    """
-    x = np.array(input_data)
-    x = read_data.standard_data(x)
-    return np.dot(x, theta)
 
-
+'''
 train_data, validation_data, test_data = read_data.read_aqi()
 
 theta = np.zeros((6 ,1))
 learning_rate = 0.00001
 theta = gradient_descending(theta, train_data[0], train_data[1] , validation_data[0], validation_data[1], learning_rate)
 #test_model(theta, test_data[0], test_data[1])
-aqi_value = get_aqi_value([33,56,7,27,0.82,101])
-print(aqi_value)
+'''
